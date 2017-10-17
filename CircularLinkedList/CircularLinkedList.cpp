@@ -117,20 +117,22 @@ void CircularLinkedList::deleteItem(ItemType &item){
 
   FindItem(listData, item, location, predLoc, found);
   //if only node in list
-  if(predLoc == location)
+  if(predLoc == location && found == true)
     listData = NULL;
+
 
   else{
     //if last node in list
-    if(location == listData)
+    if(location == listData && found == true)
       listData = predLoc;
 
-    if(found == true && location != NULL)
+    else if(found == true && location != listData)
     predLoc->next = location->next;
 
-    else
+    else{
       cout << "item not found" <<endl;
-
+      return;
+    }
   }
   
   delete location;

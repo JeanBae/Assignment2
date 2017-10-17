@@ -13,14 +13,13 @@ using std::cout;
 using std::endl;
 using std::cin;
 using std::string;
-
+using std::exit;
 int main(int argc, char** argv){
 
   CircularLinkedList list;
   ItemType item;
   int input;
   std::fstream fs;
-
   string command = "";
   int num;
   fs.open(argv[1], std::fstream::in);
@@ -47,7 +46,7 @@ int main(int argc, char** argv){
     if(command == "q")
       {
 	cout << "Quitting program..." <<endl;
-	return 0;
+	exit(0);
       }
     
     else if(command == "i")
