@@ -48,7 +48,7 @@ int main(int argc, char** argv){
 	cout << "Quitting program..." <<endl;
 	exit(0);
       }
-    
+     
     else if(command == "i")
       {
 	cout << "Number to insert: ";

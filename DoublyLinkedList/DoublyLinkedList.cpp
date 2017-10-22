@@ -75,15 +75,13 @@ void DoublyLinkedList::insertItem(ItemType &item)
   resetList();
   NodeType * newNode = new NodeType;
   current = head;
-  NodeType* prevNode;
   bool moreToSearch = (head != NULL);
-  prevNode = NULL;
   
   while(moreToSearch)
     {
       switch(item.compareTo(current->info))
 	{
-	case GREATER: prevNode = current;
+	case GREATER:
 	  getNextNode();
   
 	  moreToSearch = (current != NULL);
@@ -99,17 +97,19 @@ void DoublyLinkedList::insertItem(ItemType &item)
     }
 
   newNode->info = item;
-  if(prevNode == NULL)
+  if(current->prev == NULL)
     {
       newNode->next = head;
+      head->prev = newNode;
       head = newNode;
 
     }
   else
     {
       newNode->next = current;
-      prevNode->next = newNode;
-      
+      newNode-prev = current->prev;
+      current->prev->next = newNode;
+      current->prev = newNode;
     }
 
   length++;
@@ -122,7 +122,20 @@ void DoublyLinkedList::insertItem(ItemType &item)
 void DoublyLinkedList::deleteItem(ItemType &item)
 {
 
-  NodeType *finder = findNode(item);
+  current = head;
+  while(current)
+    {
+      if(current->info.compareTo(item) == EQUAL)
+	{
+	  current->prev->next = current->next;
+	  current->next->prev = current->prev;
+	  delete current;
+	  return;
+	}
+      current=current->next;
+    }
+  cout << "item not found" << endl;
+  /*NodeType *finder = findNode(item);
   if(finder != NULL)
     {
       delete finder;
@@ -130,7 +143,7 @@ void DoublyLinkedList::deleteItem(ItemType &item)
       length--;
     }
   else
-    cout << "item not found" <<endl;
+  cout << "item not found" <<endl;*/
 }
 
 /**
