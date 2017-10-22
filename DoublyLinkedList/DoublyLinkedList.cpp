@@ -5,7 +5,7 @@
  * This is implements the functions of the LinkedList class
  */
 
-#include "LinkedList.h"
+#include "DoublyLinkedList.h"
 #include "ItemType.h"
 #include <iostream>
 #include <cstdlib>
@@ -15,7 +15,7 @@ using namespace std;
 /**
  * Constructor, sets length to 0, head and current pointers to NULL
  */
-DoublyLinkedList::LinkedList()
+DoublyLinkedList::DoublyLinkedList()
 {
   this->length = 0;
   this->head = nullptr;
@@ -25,7 +25,7 @@ DoublyLinkedList::LinkedList()
 /**
  * Destructor, deallocates memory
  */
-DoublyLinkedList::~LinkedList()
+DoublyLinkedList::~DoublyLinkedList()
 {
   makeEmpty();
 }
@@ -72,44 +72,53 @@ void DoublyLinkedList::retrieveItem(ItemType &item, bool &found)
  */
 void DoublyLinkedList::insertItem(ItemType &item)
 {
-  resetList();
+  //resetList();
   NodeType * newNode = new NodeType;
   current = head;
-  bool moreToSearch = (head != NULL);
-  
-  while(moreToSearch)
-    {
-      switch(item.compareTo(current->info))
-	{
-	case GREATER:
-	  getNextNode();
-  
-	  moreToSearch = (current != NULL);
-	  break;
-
-	case EQUAL: moreToSearch = false;
-	  delete newNode;
-	  return;
-
-	case LESS: moreToSearch = false;
-	  break;
-	}
-    }
-
   newNode->info = item;
-  if(current->prev == NULL)
+  if(head == NULL)
+    {
+      head = newNode;
+      length++;
+      return;
+    }
+  if(item.compareTo(head->info) == LESS)
     {
       newNode->next = head;
       head->prev = newNode;
       head = newNode;
+      length++;
+      return;
+    }
+  while(current->next)
+    {
+      if(item.compareTo(current->info) == GREATER)
+	  getNextNode();  
+      if(item.compareTo(current->info) == EQUAL)
+	{
+	  delete newNode;
+	  return;
+	}
+      if(item.compareTo(current->info) == LESS)
+	  break;
+    }
 
+  if(item.compareTo(current->info) == LESS)
+    {
+      newNode->next = current;
+      newNode->prev = current->prev;
+      current->prev->next = newNode;
+      current->prev = newNode;
+    }
+  else if(item.compareTo(current->info) == GREATER)
+    {
+      current->next = newNode;
+      newNode->prev = current;
     }
   else
     {
-      newNode->next = current;
-      newNode-prev = current->prev;
-      current->prev->next = newNode;
-      current->prev = newNode;
+      delete newNode;
+      return;
     }
 
   length++;
@@ -127,10 +136,22 @@ void DoublyLinkedList::deleteItem(ItemType &item)
     {
       if(current->info.compareTo(item) == EQUAL)
 	{
-	  current->prev->next = current->next;
-	  current->next->prev = current->prev;
-	  delete current;
-	  return;
+	  if(current != head)
+	    {
+	      current->prev->next = current->next;
+	      if(current->next)
+		current->next->prev = current->prev;
+	      delete current;
+	      length--;
+	      return;
+	    }
+	  else
+	    {
+	      head = current->next;
+	      delete current;
+	      length--;
+	      return;
+	    }
 	}
       current=current->next;
     }
@@ -197,7 +218,7 @@ void DoublyLinkedList::makeEmpty()
 /**
  * Prints entire list
  */
-void LinkedList::print()
+void DoublyLinkedList::print()
 {
   this->current = head;
   cout << "[ ";

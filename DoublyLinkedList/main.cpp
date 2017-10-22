@@ -6,7 +6,7 @@
 
 #include <fstream>
 #include <iostream>
-#include "CircularLinkedList.h"
+#include "DoublyLinkedList.h"
 
 
 using std::cout;
