@@ -72,7 +72,7 @@ void DoublyLinkedList::retrieveItem(ItemType &item, bool &found)
  */
 void DoublyLinkedList::insertItem(ItemType &item)
 {
-  //resetList();
+  resetList();
   NodeType * newNode = new NodeType;
   current = head;
   newNode->info = item;
