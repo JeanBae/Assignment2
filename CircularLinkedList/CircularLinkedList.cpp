@@ -113,6 +113,7 @@ void CircularLinkedList::insertItem(ItemType &item){
 void CircularLinkedList::deleteItem(ItemType &item){
   NodeType<ItemType>* location;
   NodeType<ItemType>* predLoc;
+
   bool found;
 
   FindItem(listData, item, location, predLoc, found);
@@ -123,12 +124,14 @@ void CircularLinkedList::deleteItem(ItemType &item){
 
   else{
     //if last node in list
-    if(location == listData && found == true)
+    if(location == listData && found == true){
+      predLoc->next = location->next;
       listData = predLoc;
+    }
 
     else if(found == true && location != listData)
     predLoc->next = location->next;
-
+    
     else{
       cout << "item not found" <<endl;
       return;

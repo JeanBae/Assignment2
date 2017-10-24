@@ -1,0 +1,39 @@
+Daniel_Bae_assignment2:
+total 12
+drwxr-xr-x. 3 ugrad 4096 Oct 22 11:12 CircularLinkedList
+drwxr-xr-x. 2 ugrad 4096 Oct 22 12:14 DoublyLinkedList
+-rw-r--r--. 1 ugrad  166 Oct 22 12:14 README.txt
+-rw-r--r--. 1 ugrad    0 Oct 22 12:15 rec9030
+
+Daniel_Bae_assignment2/CircularLinkedList:
+total 308
+-rw-r--r--. 1 ugrad  3464 Oct 17 14:22 CircularLinkedList.cpp
+-rw-r--r--. 1 ugrad   687 Oct 16 13:35 CircularLinkedList.h
+-rw-r--r--. 1 ugrad 45144 Oct 22 10:56 CircularLinkedList.o
+-rw-r--r--. 1 ugrad     4 Oct 17 14:15 file.txt
+-rw-r--r--. 1 ugrad    28 Oct 16 13:35 input.txt
+-rw-r--r--. 1 ugrad   853 Oct 16 13:35 ItemType.cpp
+-rw-r--r--. 1 ugrad   360 Oct 16 13:35 ItemType.h
+-rw-r--r--. 1 ugrad 38496 Oct 22 10:56 ItemType.o
+-rwxr-xr-x. 1 ugrad 97901 Oct 22 10:56 main
+-rw-r--r--. 1 ugrad  1848 Oct 22 11:12 main.cpp
+-rw-r--r--. 1 ugrad 90992 Oct 22 10:56 main.o
+-rw-r--r--. 1 ugrad   577 Oct 16 13:35 Makefile
+
+Daniel_Bae_assignment2/DoublyLinkedList:
+total 320
+-rw-r--r--. 1 ugrad  4829 Oct 22 12:11 DoublyLinkedList.cpp
+-rw-r--r--. 1 ugrad   631 Oct 22 12:11 DoublyLinkedList.h
+-rw-r--r--. 1 ugrad 47552 Oct 22 12:11 DoublyLinkedList.o
+-rw-r--r--. 1 ugrad     2 Oct 22 12:11 file.txt
+-rw-r--r--. 1 ugrad    28 Oct 22 12:14 input.txt
+-rw-r--r--. 1 ugrad    28 Oct 22 12:11 Input.txt
+-rw-r--r--. 1 ugrad   853 Oct 19 15:30 ItemType.cpp
+-rw-r--r--. 1 ugrad   360 Oct 19 15:29 ItemType.h
+-rw-r--r--. 1 ugrad 38496 Oct 22 12:11 ItemType.o
+-rwxr-xr-x. 1 ugrad 99770 Oct 22 12:11 main
+-rw-r--r--. 1 ugrad  1844 Oct 22 12:11 main.cpp
+-rw-r--r--. 1 ugrad 91680 Oct 22 12:11 main.o
+-rw-r--r--. 1 ugrad   559 Oct 19 15:23 Makefile
+-rw-r--r--. 1 ugrad     0 Oct 16 13:36 readme.txt
+/home/ugrads/jean/cs2720/Daniel_Bae_assignment2:/home/work/cs2720
